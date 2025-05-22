@@ -78,8 +78,8 @@ else:
 # read and sort test.png
 while input("again? (y/n)") == "y":
 
-    test_image = Image.open("test.png")
-    test_image = test_image.resize((32, 32))
+    test_image = Image.open("test.png").convert("RGB")
+    test_image = test_image.resize((32, 32), Image.BILINEAR)
 
     with torch.no_grad():
         test_image_tensor = transform(test_image).unsqueeze(0)
