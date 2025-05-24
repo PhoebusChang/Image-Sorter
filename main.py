@@ -1,4 +1,3 @@
-from PIL import Image
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -75,6 +74,7 @@ else:
     model.load_state_dict(torch.load("model.pth"))
     model.eval()
 
+torch.save(model.state_dict(), "model.pth")
 # read and sort test.png
 while input("again? (y/n)") == "y":
 
@@ -94,4 +94,4 @@ while input("again? (y/n)") == "y":
     plt.show()
 
     # Save model
-    torch.save(model.state_dict(), "model.pth")
+    
